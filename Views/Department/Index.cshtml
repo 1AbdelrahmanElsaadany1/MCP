@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MCPv1.Models.Entities.DepartmentDTO>
+
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Departments</h2>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Create New Department
+        </a>
+    </div>
+
+    @if (Model.Any())
+    {
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var department in Model)
+                        {
+                            <tr>
+                                <td>@department.Id</td>
+                                <td>@department.Name</td>
+                                <td><span class="badge bg-primary">@department.Code</span></td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@department.Id" class="btn btn-sm btn-info">Details</a>
+                                    <a asp-action="Edit" asp-route-id="@department.Id" class="btn btn-sm btn-warning">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@department.Id" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <i class="bi bi-info-circle"></i> No departments found. <a asp-action="Create">Create one now</a>.
+        </div>
+    }
+</div>

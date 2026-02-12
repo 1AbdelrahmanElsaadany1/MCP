@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            <div class="text-center mb-5">
+                <h1 class="display-4 mb-3">Student Management System</h1>
+                <p class="lead text-muted">Manage students and departments efficiently</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Students Card -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm hover-card">
+                        <div class="card-body text-center p-5">
+                            <div class="mb-4">
+                                <i class="bi bi-people-fill text-primary" style="font-size: 4rem;"></i>
+                            </div>
+                            <h3 class="card-title mb-3">Students</h3>
+                            <p class="card-text text-muted mb-4">
+                                Add, view, edit, and manage student records. Assign students to departments.
+                            </p>
+                            <div class="d-grid gap-2">
+                                <a asp-controller="Student" asp-action="Index" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-list-ul"></i> View All Students
+                                </a>
+                                <a asp-controller="Student" asp-action="Create" class="btn btn-outline-primary">
+                                    <i class="bi bi-plus-circle"></i> Add New Student
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Departments Card -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm hover-card">
+                        <div class="card-body text-center p-5">
+                            <div class="mb-4">
+                                <i class="bi bi-building text-success" style="font-size: 4rem;"></i>
+                            </div>
+                            <h3 class="card-title mb-3">Departments</h3>
+                            <p class="card-text text-muted mb-4">
+                                Create and manage departments. View department details and assigned students.
+                            </p>
+                            <div class="d-grid gap-2">
+                                <a asp-controller="Department" asp-action="Index" class="btn btn-success btn-lg">
+                                    <i class="bi bi-list-ul"></i> View All Departments
+                                </a>
+                                <a asp-controller="Department" asp-action="Create" class="btn btn-outline-success">
+                                    <i class="bi bi-plus-circle"></i> Add New Department
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">💬 Chat Assistant</h5>
+                                <p class="card-text">Manage students using natural language</p>
+                                <a href="/Chat/Index" class="btn btn-primary">Open Chat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats (Optional) -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">
+                                <i class="bi bi-info-circle"></i> Quick Access
+                            </h5>
+                            <div class="row text-center">
+                                <div class="col-md-4 mb-3 mb-md-0">
+                                    <a asp-controller="Student" asp-action="Index" class="text-decoration-none">
+                                        <div class="p-3">
+                                            <i class="bi bi-person-badge text-primary" style="font-size: 2rem;"></i>
+                                            <p class="mb-0 mt-2 text-muted">Manage Students</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-3 mb-md-0">
+                                    <a asp-controller="Department" asp-action="Index" class="text-decoration-none">
+                                        <div class="p-3">
+                                            <i class="bi bi-diagram-3 text-success" style="font-size: 2rem;"></i>
+                                            <p class="mb-0 mt-2 text-muted">Manage Departments</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a asp-controller="Student" asp-action="Create" class="text-decoration-none">
+                                        <div class="p-3">
+                                            <i class="bi bi-person-plus text-info" style="font-size: 2rem;"></i>
+                                            <p class="mb-0 mt-2 text-muted">Quick Add Student</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+</style>
